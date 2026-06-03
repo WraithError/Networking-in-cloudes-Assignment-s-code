@@ -1,4 +1,5 @@
 version: 1
+
 services:
   - type: web
     name: erp-gateway
@@ -11,8 +12,10 @@ services:
         value: 10000
     healthCheckPath: /
 
-  - type: static
+  - type: web
     name: erp-dashboard
-    staticPublishPath: ./cloud-erp-platform/dashboard
-    buildCommand: echo "Static Dashboard"
+    runtime: static
+    rootDirectory: cloud-erp-platform
+    staticPublishPath: ./dashboard
+    buildCommand: echo "Static Dashboard - No build needed"
     plan: free
