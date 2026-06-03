@@ -1,24 +1,18 @@
 version: 1
 services:
   - type: web
-    name: cloud-erp-gateway
+    name: erp-gateway
     runtime: docker
-    dockerfilePath: ./gateway/Dockerfile
-    rootDir: cloud-erp-platform
+    dockerfilePath: gateway/Dockerfile
+    rootDirectory: cloud-erp-platform
     plan: free
     envVars:
       - key: PORT
-        value: 80
-    healthCheckPath: /health
-    routes:
-      - type: rewrite
-        source: /*
-        destination: /
+        value: 10000
+    healthCheckPath: /
 
-  - type: web
-    name: cloud-erp-dashboard
-    runtime: static
-    buildCommand: echo "Dashboard is static"
-    staticPublishPath: ./dashboard
-    rootDir: cloud-erp-platform
+  - type: static
+    name: erp-dashboard
+    staticPublishPath: ./cloud-erp-platform/dashboard
+    buildCommand: echo "Static Dashboard"
     plan: free
