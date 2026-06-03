@@ -2,7 +2,7 @@ version: 1
 
 services:
   - type: web
-    name: cloud-erp-platform
+    name: cloud-erp-gateway
     runtime: docker
     dockerfilePath: gateway/Dockerfile
     rootDirectory: cloud-erp-platform
